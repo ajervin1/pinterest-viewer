@@ -1,5 +1,6 @@
 <script>
 import { MagnifyingGlassIcon} from '@heroicons/vue/24/solid'
+import Input from "./Input.vue";
 
 export default {
 	name: "NavBar",
@@ -8,21 +9,25 @@ export default {
 			term: ""
 		}
 	},
+	props: ['handleSearch'],
+	components: {
+		Input,
+
+		MagnifyingGlassIcon
+	},
 	methods: {
 		onSubmit(e){
-			
-			alert(this.term);
+			this.handleSearch(this.term);
+			this.term = "";
 		}
 	},
-	components: {
-		MagnifyingGlassIcon
-	}
 }
 </script>
 
 <template>
 	<header class="border-b border border-gray-800">
-		<div class="container mx-auto flex flex-col md:flex-row items-center justify-between px-4 py-6">
+		<div class="container mx-auto flex flex-col sm:flex-row items-center justify-between px-4 py-6">
+			<!-- Logo and Nav Menu -->
 			<nav class="flex flex-col md:flex-row items-center">
 				<svg class="w-32 mr-10" viewBox="0 0 96 24" fill="none">
 					<path
@@ -32,12 +37,12 @@ export default {
 				<a href="/" class="nav-item mr-4">Home</a>
 				<a href="/" class="nav-item">About</a>
 			</nav>
+			<!-- Search and Actions -->
 			<div class="flex flex-col md:flex-row items-center">
 				<form v-on:submit.prevent="onSubmit" action="" class="relative">
 					<input v-model="term" type="text" class="w-64 px-4 pl-8 py-1.5 bg-gray-800 text-sm rounded-full" placeholder="Search">
 					<MagnifyingGlassIcon class="absolute top-1 ml-2 mt-1 text-gray-500 w-4" />
-				</form>
-				<div class="md:ml-4 mt-3 md:mt-0">
+				</form>				<div class="md:ml-4 mt-3 md:mt-0">
 					<a href="#">
 						<img
 							 src="https://raw.githubusercontent.com/drehimself/laravel-movies-example/master/public/img/avatar.jpg"

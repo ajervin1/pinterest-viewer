@@ -4,7 +4,7 @@ axios.defaults.baseURL = "https://www.pinterest.com/resource/PinResource/get/"
 * term - query string to search for
 * filter - either (pins, videos)
 * */
-async function searchPins( term, filter = 'pins' ) {
+export async function searchPins( term, filter = 'pins' ) {
 	const url = "https://www.pinterest.com/resource/BaseSearchResource/get/"
 	const source_url = `/search/pins/?q=${term}&rs=typed`
 	const data = {"options":{"article":"","appliedProductFilters":"---","price_max":null,"price_min":null,"query":term,"scope": filter,"auto_correction_disabled":"","top_pin_id":"","filters":""},"context":{}}
@@ -18,7 +18,7 @@ async function searchPins( term, filter = 'pins' ) {
 	/*  */
 }
 
-async function getSingleItem( id = "939704278473986829" ) {
+export async function getSingleItem( id = "939704278473986829" ) {
 	const url = `https://www.pinterest.com/resource/PinResource/get/?source_url=%2Fpin%2F${id}%2F&data=%7B%22options%22%3A%7B%22id%22%3A%22${id}%22,%22field_set_key%22%3A%22auth_web_main_pin%22,%22noCache%22%3Atrue,%22fetch_visual_search_objects%22%3Atrue%7D,%22context%22%3A%7B%7D%7D`
 	const {data} = await axios.get(url);
 
