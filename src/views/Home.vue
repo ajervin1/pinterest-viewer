@@ -1,9 +1,10 @@
-<script src="../../requests.js"></script>
+
 <script>
 
 import Test from "../components/Test.vue";
 import CardList from "../components/CardList.vue";
 import NavBar from "../components/NavBar.vue";
+import { searchPins } from "../../requests.js";
 
 
 export default {
@@ -12,21 +13,22 @@ export default {
 	data(){
 		return {
 			pins: [],
-			
 		}
 	},
 	methods: {
-		handleSearch(term){
-		
+		async handleSearch(term){
+			const data = await searchPins(term);
+			this.pins = data;
 		}
 	}
 }
 </script>
 
 <template>
-	<main>
+	<main class="home">
 		<NavBar  :handleSearch="this.handleSearch"   />
-		<CardList />
+		
+		<CardList v-if="pins.length" :pins="this.pins" />
 	</main>
 </template>
 

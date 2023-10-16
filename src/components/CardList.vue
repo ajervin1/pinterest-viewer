@@ -1,26 +1,13 @@
 <script>
-import { pins } from "../mock_data.js";
 import CardItem from "./CardItem.vue";
 import { HeartIcon } from '@heroicons/vue/24/solid'
 
 export default {
 	name: "CardList",
 	components: { CardItem },
-	props: {
-		name: String,
-	},
+	props: ['pins'],
 	computed: {},
 	methods: {},
-	data() {
-		return {
-			pins: pins
-        }
-	},
-	created() {
-		/* Fetch Here */
-	},
-	beforeMount() {
-	}
 }
 </script>
 

@@ -6,13 +6,12 @@ export default {
 	name: "NavBar",
 	data(){
 		return {
-			term: ""
+			term: "tina tonkin"
 		}
 	},
 	props: ['handleSearch'],
 	components: {
 		Input,
-
 		MagnifyingGlassIcon
 	},
 	methods: {
