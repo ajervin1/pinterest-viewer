@@ -1,6 +1,7 @@
 <script>
 import { pins } from "../mock_data.js";
 import CardItem from "./CardItem.vue";
+import { HeartIcon } from '@heroicons/vue/24/solid'
 
 export default {
 	name: "CardList",

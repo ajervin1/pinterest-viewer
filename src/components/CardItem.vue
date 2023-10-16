@@ -24,11 +24,9 @@ export default {
 				<h4 class="text-lg hover:text-gray-300">{{ pin.title || "Card Title" }}</h4>
 				<div class="flex items-center  gap-2 mt-1">
 					<HeartIcon  class="h-[14px] w-[14px] relative bottom-[1.2px] text-white" />
-					<span class="text-gray-400 text-sm relative">22</span>
+					<span class="text-gray-400 text-sm relative">{{pin.reaction_counts["1"]}}</span>
 				</div>
 			</div>
-		
-		
 		</div>
 	</article>
 </template>
